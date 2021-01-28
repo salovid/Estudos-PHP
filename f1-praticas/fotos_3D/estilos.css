@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+body {
+    background: #f0f2f1;
+    font-family:'open-sans', sans-serif;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.container_cartao  {
+    margin:20px;
+    
+}
+
+.container_cartao a {
+    display:inline-block;
+}
+
+.container_cartao:hover figure {
+    -webkit-transform:perspective(600px) rotateY(180deg);
+    transform: perspective(600px) rotateY(180deg);
+    -webkit-box-shadow: 0 2px 10px 2px rgba(0,0,0,0.25);
+    box-shadow: 0 2px 10px 2px rgba(0,0,0,0.25);
+}
+
+/*.container_cartao:hover figure img {
+    filter: blur(2px);
+}   */
+
+figure {
+    width: 400px;
+    height:350px;
+    margin:0;
+    position:relative;
+    transition: all ease .5s;
+    transform-style : preserve-3d;
+    transform: perspective(600px) rotateY(0deg);
+}
+
+figure .frontal,
+figure .traseira {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    transition: all ease .5s;
+
+}
+
+figure .frontal {
+    display: block;
+    backface-visibility: visible;
+
+}
+
+@media screen and (max-width: 992px) {
+    figure .traseira {
+        backface-visibility: visible;
+        transform: perspective(600px) rotateY(0deg);
+    }
+    .container_cartao:hover figure {
+        transform:perspective(600px) rotateY(0deg);
+    }
+}
+
+figure .traseira  {
+     position: absolute;
+    top:0;
+    padding:20px;
+    color:#fff;
+    transform: perspective(600px) rotateY(180deg);
+    backface-visibility:visible;
+    overflow:auto;
+    background: rgba(13, 168, 115, 0.7);
+
+   /* background: #396afc;  /* fallback for old browsers */
+   /* background: -webkit-linear-gradient(to right, #2948ff, #396afc);  /* Chrome 10-25, Safari 5.1-6 */
+  /*  background: linear-gradient(to right, #2948ff, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+figure .traseira .titulo {
+    color: #fff;
+    font-weight: normal;
+    margin-bottom: 20px;
+    font-family: 'Robot', sans-serif;
+    font-size: 24px;
+}
+
+figure .traseira hr {
+    height: 2px;
+    background:#fff;
+    border: none;
+    margin-bottom: 20px;
+    opacity: .5;
+    
+}
+
+figure .traseira p {
+    font-family:'Open Sans', sans-serif ;
+    line-height: 22px;
+    font-size: 14px;
+    
+}
+
